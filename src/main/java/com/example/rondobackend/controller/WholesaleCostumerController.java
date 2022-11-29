@@ -2,6 +2,7 @@ package com.example.rondobackend.controller;
 
 import com.example.rondobackend.model.WholesaleCostumer;
 import com.example.rondobackend.service.IWholesaleCustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,15 +25,8 @@ public class WholesaleCostumerController {
         return new ResponseEntity(wholesaleCustomerService.findAll(), HttpStatus.OK);
     }
 
-    @PostMapping
-    public ResponseEntity<WholesaleCostumer> saveCostumer(@RequestParam Long id, @RequestParam String name,
-                                                          @RequestParam String cvrNumber, @RequestParam String mail,
-                                                          @RequestParam String phoneNumber, @RequestParam String username,
-                                                          @RequestParam String password){
-        WholesaleCostumer wholesaleCostumer = new WholesaleCostumer(id, name, cvrNumber, mail, phoneNumber, username, password);
-
-        wholesaleCustomerService.save(wholesaleCostumer);
-
+    @PostMapping("/hej")
+    public ResponseEntity<WholesaleCostumer> saveCostumer(@RequestBody WholesaleCostumer wholesaleCostumer){
 
         if (wholesaleCustomerService.save(wholesaleCostumer)!= null){
             return new ResponseEntity<>(wholesaleCostumer, HttpStatus.OK);
