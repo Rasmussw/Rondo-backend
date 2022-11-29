@@ -1,6 +1,4 @@
 package com.example.rondobackend.model;
-
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,8 +16,8 @@ public class WholesaleCostumer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private int cvrNumber;
+    private String cvrNumber;
     private String mail;
-    private int phoneNumber;
+    private String phoneNumber;
 
 }

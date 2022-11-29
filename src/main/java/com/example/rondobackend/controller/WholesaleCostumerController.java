@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("http://localhost:8080/api/v1/wholesalecostumer")
 public class WholesaleCostumerController {
 
     private IWholesaleCustomerService wholesaleCustomerService;
