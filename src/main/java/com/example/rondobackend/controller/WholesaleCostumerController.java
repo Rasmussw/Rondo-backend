@@ -25,19 +25,26 @@ public class WholesaleCostumerController {
     }
 
     @PostMapping
-    public ResponseEntity<String> saveCostumer(@RequestBody WholesaleCostumer wholesaleCostumer){
-        String message = "";
+    public ResponseEntity<WholesaleCostumer> saveCostumer(@RequestParam Long id, @RequestParam String name,
+                                                          @RequestParam String cvrNumber, @RequestParam String mail,
+                                                          @RequestParam String phoneNumber, @RequestParam String username,
+                                                          @RequestParam String password){
+        WholesaleCostumer wholesaleCostumer = new WholesaleCostumer(id, name, cvrNumber, mail, phoneNumber, username, password);
+
+        wholesaleCustomerService.save(wholesaleCostumer);
+
+
         if (wholesaleCustomerService.save(wholesaleCostumer)!= null){
-            message = wholesaleCostumer.getName() + " blev oprettet";
+            return new ResponseEntity<>(wholesaleCostumer, HttpStatus.OK);
         } else {
-            message = wholesaleCostumer.getName() + " blev IKKE oprettet";
+            return new ResponseEntity<>(wholesaleCostumer, HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(message, HttpStatus.OK);
+
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<WholesaleCostumer> deleteCostumer(@PathVariable Long id){
         wholesaleCustomerService.deleteById(id);
-        return new ResponseEntity<>(new WholesaleCostumer(), HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
