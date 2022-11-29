@@ -2,11 +2,13 @@ package com.example.rondobackend.service;
 
 import com.example.rondobackend.model.WholesaleCostumer;
 import com.example.rondobackend.repo.WholesaleCustomerRepo;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
+@Service
 public class WholesaleCustomerService implements IWholesaleCustomerService {
     private WholesaleCustomerRepo wholesaleCustomerRepo;
 

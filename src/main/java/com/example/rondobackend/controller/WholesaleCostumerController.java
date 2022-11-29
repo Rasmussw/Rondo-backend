@@ -6,17 +6,33 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("http://localhost:8080/api/v1/wholesalecostumer")
+@CrossOrigin
+@RequestMapping("/api/v1/wholesalecostumer")
 public class WholesaleCostumerController {
 
     private IWholesaleCustomerService wholesaleCustomerService;
 
+    public WholesaleCostumerController(IWholesaleCustomerService wholesaleCustomerService) {
+        this.wholesaleCustomerService = wholesaleCustomerService;
+    }
+
+    @GetMapping
+    public ResponseEntity<List<WholesaleCostumer>> getAllCostumers(){
+        return new ResponseEntity(wholesaleCustomerService.findAll(), HttpStatus.OK);
+    }
 
     @PostMapping
-    public ResponseEntity<WholesaleCostumer> saveCostumer(@RequestBody WholesaleCostumer wholesaleCostumer){
-        WholesaleCostumer savedCustomer = wholesaleCustomerService.save(wholesaleCostumer);
-        return new ResponseEntity<>(savedCustomer, HttpStatus.OK);
+    public ResponseEntity<String> saveCostumer(@RequestBody WholesaleCostumer wholesaleCostumer){
+        String message = "";
+        if (wholesaleCustomerService.save(wholesaleCostumer)!= null){
+            message = wholesaleCostumer.getName() + " blev oprettet";
+        } else {
+            message = wholesaleCostumer.getName() + " blev IKKE oprettet";
+        }
+        return new ResponseEntity<>(message, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

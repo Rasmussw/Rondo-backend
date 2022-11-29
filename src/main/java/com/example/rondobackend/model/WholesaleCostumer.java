@@ -19,5 +19,6 @@ public class WholesaleCostumer {
     private String cvrNumber;
     private String mail;
     private String phoneNumber;
-
+    private String userName;
+    private String password;
 }
