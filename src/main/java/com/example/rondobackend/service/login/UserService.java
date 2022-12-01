@@ -1,10 +1,9 @@
 package com.example.rondobackend.service.login;
 
 import com.example.rondobackend.config.SecurityConfiguration;
-import com.example.rondobackend.model.login.Engros;
-import com.example.rondobackend.model.login.User;
-import com.example.rondobackend.repo.EngrosRepository;
-import com.example.rondobackend.repo.login.UserRepository;
+import com.example.rondobackend.model.User;
+import com.example.rondobackend.repository.EngrosRepository;
+import com.example.rondobackend.repository.login.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

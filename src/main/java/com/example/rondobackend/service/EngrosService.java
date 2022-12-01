@@ -1,8 +1,7 @@
 package com.example.rondobackend.service;
 
-import com.example.rondobackend.model.login.Engros;
-import com.example.rondobackend.repo.EngrosRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.rondobackend.model.Engros;
+import com.example.rondobackend.repository.EngrosRepository;
 
 import java.util.HashSet;
 import java.util.List;

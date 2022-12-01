@@ -1,9 +1,8 @@
-package com.example.rondobackend.model.login;
+package com.example.rondobackend.model;
 
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Getter

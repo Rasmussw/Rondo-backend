@@ -1,12 +1,11 @@
 package com.example.rondobackend.controller.login;
 
 import com.example.rondobackend.jwt.JwtTokenManager;
-import com.example.rondobackend.service.IEngrosService;
 import com.example.rondobackend.service.login.IUserService;
 import com.example.rondobackend.service.login.JwtUserDetailsService;
-import com.example.rondobackend.model.login.JwtRequestModel;
-import com.example.rondobackend.model.login.JwtResponseModel;
-import com.example.rondobackend.model.login.User;
+import com.example.rondobackend.model.JwtRequestModel;
+import com.example.rondobackend.model.JwtResponseModel;
+import com.example.rondobackend.model.User;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

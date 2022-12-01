@@ -1,6 +1,5 @@
 package com.example.rondobackend.service.login;
 
-import com.example.rondobackend.service.IEngrosService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,7 +23,7 @@ public class JwtUserDetailsService implements UserDetailsService {
         // Herefter opretter man et nyt userdetails.User objekt med usr/pw fra databasen.
         // Spring Security vil herefter bruge bcrypt.compare() til at sammenligne clear-text pw fra
         // login-formular med datbasens bcrypt af pw. Hvis svaret er true, er brugeren godkendt.
-        List<com.example.rondobackend.model.login.User> users = userService.findByName(username);
+        List<com.example.rondobackend.model.User> users = userService.findByName(username);
         System.out.println("users from database: length: " + users.size());
         if(users.size()==1) {
             System.out.println("found the user in Database: " + users.get(0).getUsername());

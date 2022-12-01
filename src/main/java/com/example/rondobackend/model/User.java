@@ -1,15 +1,11 @@
-package com.example.rondobackend.model.login;
+package com.example.rondobackend.model;
 
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.apache.tomcat.jni.Address;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 @Setter

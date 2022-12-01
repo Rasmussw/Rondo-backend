@@ -1,7 +1,6 @@
 package com.example.rondobackend.service;
 
-import com.example.rondobackend.model.login.Engros;
-import com.example.rondobackend.model.login.User;
+import com.example.rondobackend.model.Engros;
 
 import java.util.List;
 

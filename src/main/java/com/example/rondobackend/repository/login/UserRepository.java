@@ -1,6 +1,6 @@
-package com.example.rondobackend.repo.login;
+package com.example.rondobackend.repository.login;
 
-import com.example.rondobackend.model.login.User;
+import com.example.rondobackend.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.example.rondobackend.service.login;
 
-import com.example.rondobackend.model.login.User;
+import com.example.rondobackend.model.User;
 import com.example.rondobackend.service.ICRUDService;
 
 

@@ -1,4 +1,4 @@
-package com.example.rondobackend.model.login;
+package com.example.rondobackend.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
