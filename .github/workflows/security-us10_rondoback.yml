@@ -41,8 +41,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: public
-          needs: build
+          name: 'rondoback'
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
