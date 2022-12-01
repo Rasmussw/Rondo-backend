@@ -14,8 +14,10 @@
     <name>Rondo-backend</name>
     <description>Rondo-backend</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>1.11</java.version>
+        <maven.compiler.release>17</maven.compiler.release>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
