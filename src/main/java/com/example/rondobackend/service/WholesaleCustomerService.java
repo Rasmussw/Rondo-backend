@@ -1,6 +1,6 @@
 package com.example.rondobackend.service;
 
-import com.example.rondobackend.model.WholesaleCostumer;
+import com.example.rondobackend.model.WholesaleCustomer;
 import com.example.rondobackend.repo.WholesaleCustomerRepo;
 import org.springframework.stereotype.Service;
 
@@ -17,19 +17,19 @@ public class WholesaleCustomerService implements IWholesaleCustomerService {
     }
 
     @Override
-    public Set<WholesaleCostumer> findAll() {
-        Set<WholesaleCostumer> wholesaleCostumers = new HashSet<>();
-        wholesaleCustomerRepo.findAll().forEach(wholesaleCostumers::add);
-        return wholesaleCostumers;
+    public Set<WholesaleCustomer> findAll() {
+        Set<WholesaleCustomer> wholesaleCustomers = new HashSet<>();
+        wholesaleCustomerRepo.findAll().forEach(wholesaleCustomers::add);
+        return wholesaleCustomers;
     }
 
     @Override
-    public WholesaleCostumer save(WholesaleCostumer object) {
+    public WholesaleCustomer save(WholesaleCustomer object) {
         return wholesaleCustomerRepo.save(object);
     }
 
     @Override
-    public void delete(WholesaleCostumer object) {
+    public void delete(WholesaleCustomer object) {
         wholesaleCustomerRepo.delete(object);
     }
 
@@ -39,7 +39,7 @@ public class WholesaleCustomerService implements IWholesaleCustomerService {
     }
 
     @Override
-    public Optional<WholesaleCostumer> findById(Long aLong) {
+    public Optional<WholesaleCustomer> findById(Long aLong) {
         return wholesaleCustomerRepo.findById(aLong);
     }
 }
