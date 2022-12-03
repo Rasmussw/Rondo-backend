@@ -2,8 +2,6 @@ package com.example.rondobackend.config;
 
 import com.example.rondobackend.jwt.JwtAuthenticationEntryPoint;
 import com.example.rondobackend.jwt.JwtFilter;
-import com.example.rondobackend.jwt.JwtAuthenticationEntryPoint;
-import com.example.rondobackend.jwt.JwtFilter;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

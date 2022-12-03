@@ -1,36 +1,38 @@
 package com.example.rondobackend.service;
 
-import com.example.rondobackend.model.WholesaleCostumer;
+import com.example.rondobackend.model.WholesaleCustomer;
 import com.example.rondobackend.repo.WholesaleCustomerRepo;
+import com.example.rondobackend.repository.WholesaleCustomerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
 @Service
 public class WholesaleCustomerService implements IWholesaleCustomerService {
-    private WholesaleCustomerRepo wholesaleCustomerRepo;
+    private WholesaleCustomerRepository wholesaleCustomerRepo;
 
-    public WholesaleCustomerService(WholesaleCustomerRepo wholesaleCustomerRepo) {
+    public WholesaleCustomerService(WholesaleCustomerRepository wholesaleCustomerRepo) {
         this.wholesaleCustomerRepo = wholesaleCustomerRepo;
     }
 
     @Override
-    public Set<WholesaleCostumer> findAll() {
-        Set<WholesaleCostumer> wholesaleCostumers = new HashSet<>();
+    public Set<WholesaleCustomer> findAll() {
+        Set<WholesaleCustomer> wholesaleCostumers = new HashSet<>();
         wholesaleCustomerRepo.findAll().forEach(wholesaleCostumers::add);
         return wholesaleCostumers;
     }
 
     @Override
-    public WholesaleCostumer save(WholesaleCostumer object) {
-        return wholesaleCustomerRepo.save(object);
+    public WholesaleCustomer save(WholesaleCustomer object) {
+        return null;
     }
 
     @Override
-    public void delete(WholesaleCostumer object) {
-        wholesaleCustomerRepo.delete(object);
+    public void delete(WholesaleCustomer object) {
+
     }
 
     @Override
@@ -39,7 +41,12 @@ public class WholesaleCustomerService implements IWholesaleCustomerService {
     }
 
     @Override
-    public Optional<WholesaleCostumer> findById(Long aLong) {
+    public Optional<WholesaleCustomer> findById(Long aLong) {
         return wholesaleCustomerRepo.findById(aLong);
+    }
+
+    @Override
+    public List<WholesaleCustomer> findByName(String name) {
+        return null;
     }
 }

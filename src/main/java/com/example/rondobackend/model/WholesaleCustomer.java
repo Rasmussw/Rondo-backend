@@ -1,17 +1,18 @@
 package com.example.rondobackend.model;
-
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 @Getter
 @Setter
 @ToString
-@NoArgsConstructor
 @AllArgsConstructor
-@Table (name = "engros")
-public class Engros {
+@NoArgsConstructor
+public class WholesaleCustomer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,11 +21,7 @@ public class Engros {
     private String cvrNumber;
     private String mail;
     private String phoneNumber;
-
-    @OneToOne(mappedBy = "engros")
-    private User user;
-
-
-
+    private String userName;
+    private String password;
 
 }

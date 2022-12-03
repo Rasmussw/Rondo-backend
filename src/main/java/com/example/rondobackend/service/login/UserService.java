@@ -2,7 +2,7 @@ package com.example.rondobackend.service.login;
 
 import com.example.rondobackend.config.SecurityConfiguration;
 import com.example.rondobackend.model.User;
-import com.example.rondobackend.repository.EngrosRepository;
+import com.example.rondobackend.repository.WholesaleCustomerRepository;
 import com.example.rondobackend.repository.login.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,7 +18,7 @@ import java.util.Set;
 public class UserService implements IUserService {
 
     private UserRepository userRepository;
-    private EngrosRepository engrosRepository;
+    private WholesaleCustomerRepository wholesaleCustomerRepository;
 
     @Override
     public Set<User> findAll() {
@@ -60,6 +60,6 @@ public class UserService implements IUserService {
     @Override
     public String findByNameValid(String name) {
         System.out.println("Userservice called findByName with argument: " + name);
-        return engrosRepository.findByName(name).get(0).getName();
+        return wholesaleCustomerRepository.findByName(name).get(0).getName();
     }
 }

@@ -7,16 +7,15 @@ import com.example.rondobackend.model.JwtRequestModel;
 import com.example.rondobackend.model.JwtResponseModel;
 import com.example.rondobackend.model.User;
 import lombok.AllArgsConstructor;
+import org.springframework.context.annotation.Role;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -31,7 +30,9 @@ public class JwtController {
     private IUserService userService;
 
     //this methode sets up the password for registred users in the system
+
     @PostMapping("/signup")
+    @PreAuthorize("hasAnyAuthority()")
     public ResponseEntity<JwtResponseModel> signup(@RequestBody JwtRequestModel request){
         System.out.println("signup: username:" + request.getUsername() + " password: " + request.getPassword() );
         User user = new User(request.getUsername(),request.getPassword());
@@ -39,14 +40,16 @@ public class JwtController {
             if (userService.save(user) != null) {
                 return ResponseEntity.ok(new JwtResponseModel(" pw: " + user.getPassword()));
             } else {
-                return ResponseEntity.ok(new JwtResponseModel("error creating user: " + user.getEngros().getName()));
+                return ResponseEntity.ok(new JwtResponseModel("error creating user: " + user.getWholesaleCustomer().getName()));
             }
         }else {
-                return ResponseEntity.ok(new JwtResponseModel("error: user exists: " + user.getEngros().getName()));
+                return ResponseEntity.ok(new JwtResponseModel("error: user exists: " + user.getWholesaleCustomer().getName()));
         }
     }
 
+
     @PostMapping("/login")
+    @PreAuthorize("hasAnyRole()")
     public ResponseEntity<JwtResponseModel> createToken(@RequestBody JwtRequestModel request) throws Exception {
         // HttpServletRequest servletRequest is available from Spring, if needed.
         System.out.println(" JwtController createToken Call: 4" + request.getUsername());
@@ -76,13 +79,13 @@ public class JwtController {
 
     @DeleteMapping("/deleteUser")
     public ResponseEntity<Map> deleteUser(@RequestBody User user) { // hvis man kommer hertil, er token OK
-        System.out.println("deleteUser is called with user: " + user.getEngros().getName());
+        System.out.println("deleteUser is called with user: " + user.getWholesaleCustomer().getName());
         // evt. findById, som finder hele objektet fra MySQL, inkl. id.
-        List<User> users =  userService.findByName(user.getEngros().getName());
+        List<User> users =  userService.findByName(user.getWholesaleCustomer().getName());
         User userToDelete = users.get(0);
         userService.delete(userToDelete);
         Map<String,String > map = new HashMap<>();
-        map.put("message","user deleted, if found " + user.getEngros().getName());
+        map.put("message","user deleted, if found " + user.getWholesaleCustomer().getName());
         return ResponseEntity.ok(map);
     }
 
