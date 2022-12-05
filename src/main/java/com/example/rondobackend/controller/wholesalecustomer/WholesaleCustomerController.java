@@ -1,7 +1,7 @@
-package com.example.rondobackend.controller;
+package com.example.rondobackend.controller.wholesalecustomer;
 
-import com.example.rondobackend.model.WholesaleCustomer;
-import com.example.rondobackend.service.IWholesaleCustomerService;
+import com.example.rondobackend.model.wholesalecustomer.WholesaleCustomer;
+import com.example.rondobackend.service.wholesalecustomer.IWholesaleCustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
