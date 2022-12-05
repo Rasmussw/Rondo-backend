@@ -1,4 +1,4 @@
-package com.example.rondobackend.model;
+package com.example.rondobackend.model.wholesalecustomer;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

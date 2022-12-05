@@ -1,7 +1,7 @@
-package com.example.rondobackend.service;
+package com.example.rondobackend.service.wholesalecustomer;
 
-import com.example.rondobackend.model.WholesaleCustomer;
-import com.example.rondobackend.repo.WholesaleCustomerRepo;
+import com.example.rondobackend.model.wholesalecustomer.WholesaleCustomer;
+import com.example.rondobackend.repo.wholesalecustomer.WholesaleCustomerRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
