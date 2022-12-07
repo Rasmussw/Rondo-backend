@@ -4,11 +4,9 @@ package com.example.rondobackend.controller.mail;
 import com.example.rondobackend.model.mail.Mail;
 import com.example.rondobackend.service.mail.MailService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @RequestMapping("mail")
 public class MailController {
